@@ -44,11 +44,11 @@ public class Country {
     private String governmentForm;
     @Column (name = "head_of_state", length = 60)
     private String headOfState;
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "capital")
     private City city;
     @OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "country_id")
-    private Set<Language> languages;
+    private Set<CountryLanguage> languages;
 
 }
